@@ -9,9 +9,19 @@
   </head>
 
   <body>
-  	<% Category.all.each do |category| %>
-  	<%= link_to category.name, tasks_path(category: category.name) %>
-  	<% end -%>
+   <nav class="navbar navbar-default">
+   	 <div class="container">
+   	  <div class="navbar-brand">TaskRabbit</div>
+   	 	<ul class="nav navbar-nav">
+		  	<li><% Category.all.each do |category| %></li>
+		  	<li><%= link_to category.name, tasks_path(category: category.name) %></li>
+		  	<% end -%>
+		 </ul>
+		 <div class="navbar-text navbar-right navbar-link"><%= link_to "New Task", new_task_path %></div> 	
+  	   </div>
+  </nav>
+  <div class="container">
     <%= yield %>
+   </div>
   </body>
 </html>
